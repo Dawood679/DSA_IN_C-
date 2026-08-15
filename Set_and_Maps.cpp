@@ -85,11 +85,71 @@
 // }
 
 
-//find the frequncy of the elements with maps
+// //find the frequncy of the elements with maps
 
+
+// #include<iostream>
+// #include <map>
+
+// using namespace std;
+
+
+
+// int main(){
+//     int arr[] = {1,2,3,3,4,4,5,5};
+
+//     map<int,int> use;
+//     for(int i = 0 ; i < 8;i++){
+//         if(use.contains(arr[i])){
+//             use[arr[i]]++;
+//         }else{
+
+//             use.insert({arr[i],1});
+//         }
+//     }
+    
+//     for (auto [key, value] : use) {
+//     cout << key << " -> " << value << endl;
+// }
+    
+
+//     return 0;
+// }
+
+
+
+//count distinct element
+
+
+// #include<iostream>
+// #include <set>
+
+// using namespace std;
+
+
+
+// int main(){
+//     int arr[] = {1,2,3,3,4,4,5,5};
+
+    
+//     set<int> st;
+
+//     for(int i= 0 ; i < 8;i++){
+//         st.insert(arr[i]);
+//     }
+    
+//     cout<<st.size();
+    
+
+//     return 0;
+// }
+
+
+
+//union of the two arrays
 
 #include<iostream>
-#include <map>
+#include <set>
 
 using namespace std;
 
@@ -97,20 +157,21 @@ using namespace std;
 
 int main(){
     int arr[] = {1,2,3,3,4,4,5,5};
+    int arr2[] = {7,8,9,10,11};
+    set<int> st;
+    for(int i = 0 ; i< 8;i++){
+        st.insert(arr[i]);
+    }
+   for(int i = 0 ; i< 5;i++){
+        st.insert(arr2[i]);
+    }
 
-    map<int,int> use;
-    for(int i = 0 ; i < 8;i++){
-        if(use.contains(arr[i])){
-            use[arr[i]]++;
-        }else{
 
-            use.insert({arr[i],1});
-        }
+
+     for (int num : st) {
+        std::cout << num << " ";
     }
     
-    for (auto [key, value] : use) {
-    cout << key << " -> " << value << endl;
-}
     
 
     return 0;
