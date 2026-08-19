@@ -218,32 +218,62 @@
 
 
 // two sum problem with maps and also the count
+// #include <iostream>
+// #include <map>
+
+// using namespace std;
+
+// int main() {
+//     int arr[] = {1, 4, 5, 6, 7, 3};
+//     int target = 9;
+
+//     int ans = 0;
+//     map<int, int> mp;
+
+//     for (int i = 0; i < 6; i++) {
+
+//         int req = target - arr[i];
+
+//         // required number already exists?
+//         if (mp.contains(req)) {
+//             ans += mp[req];
+//         }
+
+//         // store current number
+//         mp[arr[i]]++;
+//     }
+
+//     cout << "Total pairs: " << ans << endl;
+
+//     return 0;
+// }
+
+
+//sub array problem with sets
+// p = prefix sum array
+formula p[r] = p[l-1]
 #include <iostream>
 #include <map>
 
 using namespace std;
 
 int main() {
-    int arr[] = {1, 4, 5, 6, 7, 3};
-    int target = 9;
+    int arr[] = {1, 7,-6,-1,-1};
 
-    int ans = 0;
-    map<int, int> mp;
+    set<int> st;
+    int pre = 0 ;
 
-    for (int i = 0; i < 6; i++) {
-
-        int req = target - arr[i];
-
-        // required number already exists?
-        if (mp.contains(req)) {
-            ans += mp[req];
+    for(int i = 0 ; i < 5;i++){
+        pre += arr[i];
+        if(pre ==0){
+            cout<<"ye sub arrays hn";
         }
-
-        // store current number
-        mp[arr[i]]++;
+        if(st.contains(arr[i])){
+            cout<<"ye sub arrhya mil gai";
+        }
+        st.insert(arr[i]);
     }
-
-    cout << "Total pairs: " << ans << endl;
+   
 
     return 0;
 }
