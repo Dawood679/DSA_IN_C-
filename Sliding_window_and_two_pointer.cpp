@@ -78,29 +78,93 @@
 
 
 
-// carry forward technigque with sum of suba arry with size k = x with optimize solution
+// // carry forward technigque with sum of suba arry with size k = x with optimize solution
+
+// #include<iostream>
+// using namespace std;
+
+
+
+// int main(){
+//     int arr[] = {1,2,3,4,5};
+//     int ans =-32232232;
+//     int k = 3;
+//     int sum =0;
+//     //create a sum for first wind
+//     for(int i = 0 ; i< k;i++){
+//         sum +=arr[i];
+//     }
+
+//     //build the sol for next window
+//     for(int i = k ; i < 5;i++){
+//         sum += arr[i];
+//         sum -= arr[i-k];
+//         ans = max(ans,sum);
+//     }
+//     cout<<ans;
+// }
+
+// // maintain the count variable for substring with size of k 
+
+// #include<iostream>
+// #include<string.h>
+// using namespace std;
+
+
+
+// int main(){
+//     string s = "abcdefijk";
+//     int k = 4;
+//     int count = 0;
+//     for(int i = 0 ; i < k ;i++){
+//         if(s[i] == 'a' or s[i] == 'e' or s[i] == 'i' or s[i] == 'o' or s[i] == 'u' ){
+//             count++;
+//         }
+//     }
+//     cout<<count<<" ";
+//     for(int i = k ; i < s.size();i++){
+//         if(s[i] == 'a' or s[i] == 'e' or s[i] == 'i' or s[i] == 'o' or s[i] == 'u'){
+//             count++;
+//         }
+//         if(s[i-k] == 'a' or s[i-k] == 'e' or s[i-k] == 'i' or s[i-k] == 'o' or s[i-k] == 'u' ){
+//             count--;
+//         }
+//         cout<<count<<" ";
+//     }
+
+    
+// }
+
+
+// count distinct element in every widow of size k 
 
 #include<iostream>
+#include<string.h>
+#include<map>
 using namespace std;
 
 
 
 int main(){
-    int arr[] = {1,2,3,4,5};
-    int ans =-32232232;
-    int k = 3;
-    int sum =0;
-    //create a sum for first wind
-    for(int i = 0 ; i< k;i++){
-        sum +=arr[i];
-    }
+   int arr[] = { 1,2,1,3,4,2,5,5,5};
+   int k = 4;
+    Map mp<int,int>;
+   for( int i = 0 ; i < k ; i++){
+        mp[arr[i]]++;
+   }
 
-    //build the sol for next window
-    for(int i = k ; i < 5;i++){
-        sum += arr[i];
-        sum -= arr[i-k];
-        ans = max(ans,sum);
-    }
-    cout<<ans;
+   for(int i = k ; i < 9 ; i ++){
+    mp[arr[i]]++;
+
+
+    mp[arr[i-k]]--;
+    // If frequency becomes 0, erase it
+        if (mp[arr[i - k]] == 0) {
+            mp.erase(arr[i - k]);
+        }
+
+        cout << "Distinct: " << mp.size() << endl;
+   }
+
+    
 }
-
